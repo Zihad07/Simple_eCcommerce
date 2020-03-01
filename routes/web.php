@@ -12,6 +12,12 @@
 */
 
 Route::get('/', 'FrontEndController@index')->name('index');
+Route::get('product/{product}','FrontEndController@show')->name('product.single');
+Route::post('cart/add','ShoppingController@addToCart')->name('cart.add');
+Route::get('cart','ShoppingController@cart')->name('cart.show');
+Route::get('cart/{id}/delete','ShoppingController@cartDelete')->name('cart.delete');
+Route::get('cart/{id}/{qty}/incr','ShoppingController@incr')->name('cart.incr');
+Route::get('cart/{id}/{qty}/decr','ShoppingController@decr')->name('cart.decr');
 
 Route::resource('products','ProductsController');
 

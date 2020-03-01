@@ -11,15 +11,19 @@
                    @foreach($products as $product)
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="books-item">
-                                <div class="books-item-thumb">
-                                    <img src="{{$product->image}}" alt="book">
-                                    <div class="new">New</div>
-                                    <div class="sale">Sale</div>
-                                    <div class="overlay overlay-books"></div>
-                                </div>
+                                <a href="{{route('product.single',$product->id)}}">
+                                    <div class="books-item-thumb">
+                                        <img src="{{$product->image}}" alt="book">
+                                        <div class="new">New</div>
+                                        <div class="sale">Sale</div>
+                                        <div class="overlay overlay-books"></div>
+                                    </div>
+                                </a>
 
                                 <div class="books-item-info">
-                                    <h5 class="books-title">{{$product->name}}</h5>
+                                    <a href="{{route('product.single',$product->id)}}">
+                                        <h5 class="books-title">{{$product->name}}</h5>
+                                    </a>
 
                                     <div class="books-price">${{$product->price}}</div>
                                 </div>
@@ -38,22 +42,7 @@
 
                     <div class="col-lg-12">
                         {{$products->links()}}
-{{--                        <nav class="navigation align-center">--}}
 
-{{--                            <a href="#" class="page-numbers bg-border-color current"><span>1</span></a>--}}
-{{--                            <a href="#" class="page-numbers bg-border-color"><span>2</span></a>--}}
-{{--                            <a href="#" class="page-numbers bg-border-color"><span>3</span></a>--}}
-{{--                            <a href="#" class="page-numbers bg-border-color"><span>4</span></a>--}}
-{{--                            <a href="#" class="page-numbers bg-border-color"><span>5</span></a>--}}
-
-{{--                            <svg class="btn-prev">--}}
-{{--                                <use xlink:href="#arrow-left"></use>--}}
-{{--                            </svg>--}}
-{{--                            <svg class="btn-next">--}}
-{{--                                <use xlink:href="#arrow-right"></use>--}}
-{{--                            </svg>--}}
-
-{{--                        </nav>--}}
 
                     </div>
 

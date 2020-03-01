@@ -12,4 +12,9 @@ class FrontEndController extends Controller
 //        dd('hello');
         return view('index',['products'=>Product::paginate(2)]);
     }
+
+    public function show(Product $product)
+    {
+        return view('single',['product'=>$product]);
+    }
 }
