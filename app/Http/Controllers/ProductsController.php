@@ -55,7 +55,7 @@ class ProductsController extends Controller
         Product::create([
             'name'=>$request->input('name'),
             'price'=>$request->input('price'),
-            'image'=>$imagePath,
+            'image'=>'storage/'.$imagePath,
             'description'=>$request->input('description')
         ]);
 
