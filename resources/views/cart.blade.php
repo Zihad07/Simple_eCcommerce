@@ -43,8 +43,8 @@
                                         <td class="product-thumbnail">
 
                                             <div class="cart-product__item">
-                                                <a href="#">
-                                                    <img src="{{asset($product->model->image)}}" width="20%" alt="product" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image">
+                                                <a href="{{route('product.single',$product->id)}}">
+                                                    <img src="{{asset($product->model->image)}}" width="80px" alt="product" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image">
                                                 </a>
                                                 <div class="cart-product-content">
                                                     <h5 class="cart-product-title">{{$product->name}}</h5>
@@ -103,7 +103,7 @@
                         <div class="cart-total">
                             <h3 class="cart-total-title">Cart Totals</h3>
                             <h5 class="cart-total-total">Total: <span class="price">${{Cart::total()}}</span></h5>
-                            <a href="20_checkout.html" class="btn btn-medium btn--light-green btn-hover-shadow">
+                            <a href="{{route('cart.checkout')}}" class="btn btn-medium btn--light-green btn-hover-shadow">
                                 <span class="text">Checkout</span>
                                 <span class="semicircle"></span>
                             </a>

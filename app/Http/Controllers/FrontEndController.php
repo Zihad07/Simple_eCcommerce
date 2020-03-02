@@ -10,7 +10,7 @@ class FrontEndController extends Controller
     public function index()
     {
 //        dd('hello');
-        return view('index',['products'=>Product::paginate(2)]);
+        return view('index',['products'=>Product::paginate(3)]);
     }
 
     public function show(Product $product)

@@ -27,6 +27,7 @@ class ShoppingController extends Controller
             'options'=>[]
         ]);
 
+//      for Product model property use in view
         Cart::associate($cartItem->rowId,Product::class);
 
 
@@ -59,5 +60,24 @@ class ShoppingController extends Controller
 
         Cart::update($id,$qty-1);
         return redirect()->back();
+    }
+
+    public function quickAdd($id)
+    {
+        $pdt = Product::findOrFail($id);
+
+        $cartItem = Cart::add([
+            'id'=>$pdt->id,
+            'name'=>$pdt->name,
+            'qty'=>1,
+            'price'=>$pdt->price,
+            'weight'=>0,
+            'options'=>[]
+        ]);
+
+        Cart::associate($cartItem->rowId,Product::class);
+
+        return redirect()->route('cart.show');
+
     }
 }

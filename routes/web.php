@@ -18,6 +18,12 @@ Route::get('cart','ShoppingController@cart')->name('cart.show');
 Route::get('cart/{id}/delete','ShoppingController@cartDelete')->name('cart.delete');
 Route::get('cart/{id}/{qty}/incr','ShoppingController@incr')->name('cart.incr');
 Route::get('cart/{id}/{qty}/decr','ShoppingController@decr')->name('cart.decr');
+Route::get('cart/quick/add/{id}','ShoppingController@quickAdd')->name('cart.quick.add');
+
+
+
+Route::get('cart/checkout','CheckoutController@index')->name('cart.checkout');
+Route::post('cart/checkout','CheckoutController@pay')->name('cart.checkout.pay');
 
 Route::resource('products','ProductsController');
 
