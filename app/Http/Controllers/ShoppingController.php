@@ -80,4 +80,6 @@ class ShoppingController extends Controller
         return redirect()->route('cart.show');
 
     }
+
+
 }

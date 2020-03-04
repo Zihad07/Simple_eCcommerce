@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="container">
+        @include('include.message')
         <div class="row pt120">
             <div class="books-grid">
 

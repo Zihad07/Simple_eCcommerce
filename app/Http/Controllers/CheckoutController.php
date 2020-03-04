@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Mail\PurchaseProductEmail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -34,6 +36,12 @@ class CheckoutController extends Controller
         ]);
 
 //        dd($customer);
-        dd('Your card was charged succesfully.');
+//        dd('Your card was charged succesfully.');
+
+//        Mail Send
+        Mail::to(request()->stripeEmail)->send(new PurchaseProductEmail());
+        Cart::destroy();
+
+        return redirect(route('index'))->with('success','Purchase successfull. wait for our email');
     }
 }
